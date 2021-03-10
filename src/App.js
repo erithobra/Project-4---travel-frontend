@@ -2,12 +2,15 @@ import React, { Component } from "react";
 import axios from "axios";
 import './App.css';
 
+import Trips from "./component/Trips";
+
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
       trips: [],
       users: [],
+      apiDataLoaded: false,
     };
   }
 
@@ -19,7 +22,8 @@ class App extends Component {
 
     this.setState({
       trips: trips.data,
-      users: users.data
+      users: users.data,
+      apiDataLoaded: true
     })
   }
 
@@ -30,7 +34,19 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <h1>Travel App Frontend</h1>
+        { this.state.apiDataLoaded
+        ?
+          <div>
+            <div>
+              <h1>Travel App Frontend</h1>
+            </div>
+            <div>
+              <Trips trips = {this.state.trips.data} />
+            </div> 
+          </div>
+        : 
+          <p>Loading</p>
+        }
       </div>
     );
   }
