@@ -1,8 +1,10 @@
 import React, { Component } from "react";
 import axios from "axios";
 import './App.css';
+import { Route } from 'react-router-dom';
 
-import Trips from "./component/Trips";
+import Trips from "./components/Trips";
+import Users from "./components/Users";
 
 class App extends Component {
   constructor(props) {
@@ -32,16 +34,24 @@ class App extends Component {
   }
 
   render() {
+    console.log(this.state.trips);
+
     return (
       <div className="App">
         { this.state.apiDataLoaded
         ?
           <div>
+            {console.log(this.state.trips[0].name)}
             <div>
               <h1>Travel App Frontend</h1>
             </div>
             <div>
-              <Trips trips = {this.state.trips.data} />
+              <Route exact path="/trips"
+                render={() => (
+                  <Trips trips={this.state.trips} />
+                )}
+              />
+              <Route exact path="/users" component={ Users } users = {this.state.users.data} />
             </div> 
           </div>
         : 
