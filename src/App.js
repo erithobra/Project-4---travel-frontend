@@ -52,7 +52,11 @@ class App extends Component {
                   <Trips trips={this.state.trips} />
                 )}
               />
-              <Route exact path="/users" component={ Users } users = {this.state.users.data} />
+              <Route exact path="/users" 
+                render={() => (
+                  <Users users={this.state.users} />
+                )}
+              />
               <Route exact path="/trips/new"
                 render={() => (
                   <AddTrip/>
