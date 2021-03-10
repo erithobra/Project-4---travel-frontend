@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { Route, withRouter, Link } from 'react-router-dom';
+
 
 const Trips = (props) => {
     console.log(props);
@@ -10,8 +12,10 @@ const Trips = (props) => {
                     <li key={trip.id}>{trip.name}</li>
                 )}
             </div>
+            <Link to="/trips/new">Add New Trip</Link>
         </div>
     )
 }
+
 
 export default Trips;

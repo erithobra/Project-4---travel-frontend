@@ -5,6 +5,7 @@ import { Route } from 'react-router-dom';
 
 import Trips from "./components/Trips";
 import Users from "./components/Users";
+import AddTrip from "./components/AddTrip";
 
 class App extends Component {
   constructor(props) {
@@ -52,6 +53,11 @@ class App extends Component {
                 )}
               />
               <Route exact path="/users" component={ Users } users = {this.state.users.data} />
+              <Route exact path="/trips/new"
+                render={() => (
+                  <AddTrip/>
+                )}
+              />
             </div> 
           </div>
         : 
