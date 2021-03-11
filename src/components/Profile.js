@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Profile = (props) => {
    
@@ -17,7 +18,12 @@ const Profile = (props) => {
                         <li>lastName: {foundUser.lastName}</li>
                         <li>password: {foundUser.password}</li>
                     </div>
-                    {/* <Link to="/users/signup">Add New User</Link> */}
+                    <div>
+                    <Link to={`/profile/${foundUser.id}/edit`}>
+                        <button>Edit User</button>
+                    </Link>
+                        <button>Delete User</button>
+                    </div>
                 </div>
             ) :
                 <p>no user data found</p>
@@ -25,7 +31,5 @@ const Profile = (props) => {
         </div>
     )
 }
-
-
 
 export default Profile;
