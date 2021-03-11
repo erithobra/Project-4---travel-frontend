@@ -20,8 +20,6 @@ class App extends Component {
     };
   }
 
-
-  
   getTrips = async () => {
     const trips = await axios.get("http://localhost:3001/trips")
     const users = await axios.get("http://localhost:3001/users")
