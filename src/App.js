@@ -7,6 +7,7 @@ import Trips from "./components/Trips";
 import Users from "./components/Users";
 import AddTrip from "./components/AddTrip";
 import Signup from "./components/Signup";
+import Profile from "./components/Profile";
 
 class App extends Component {
   constructor(props) {
@@ -66,6 +67,14 @@ class App extends Component {
               <Route exact path="/users/signup"
                 render={() => (
                   <Signup/>
+                )}
+              />
+              <Route exact path="/profile/:id"
+                render={(caseyProps) => (
+                  <Profile
+                    user={this.state.users}
+                    { ... caseyProps}
+                  />
                 )}
               />
             </div> 

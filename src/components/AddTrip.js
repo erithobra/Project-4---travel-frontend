@@ -1,6 +1,5 @@
 import axios from 'axios';
 import React, { Component } from 'react';
-import { Redirect } from 'react-router';
 
 
 class AddTrip extends Component {
