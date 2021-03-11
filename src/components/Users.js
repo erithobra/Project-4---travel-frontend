@@ -10,7 +10,7 @@ const Users = (props) => {
                     <li key={user.id}>{user.firstName} {user.lastName}</li>
                 )}
             </div>
-            {/* <Link to="/trips/new">Add New Trip</Link> */}
+            {/* <Link to="/users/signup">Add New User</Link> */}
         </div>
     )
 }
