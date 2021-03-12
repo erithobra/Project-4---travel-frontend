@@ -19,6 +19,14 @@ const Profile = (props) => {
                         <li>Password: {foundUser.password}</li>
                     </div>
                     <div>
+                        Trips created: <br />
+                        {foundUser.Trips.map(trip => (
+                            <Link to={`/trips/${trip.id}`} key={trip.id}>
+                                <li key={trip.id}>{trip.name}</li>
+                            </Link>
+                        ))}
+                    </div>
+                    <div>
                         <Link to={`/profile/${foundUser.id}/edit`}>
                             <button>Edit User</button>
                         </Link>
