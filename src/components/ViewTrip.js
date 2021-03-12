@@ -17,6 +17,7 @@ const ViewTrip = (props) => {
                         <li>Start Date: {foundTrip.startDate}</li>
                         <li>End Date: {foundTrip.endDate}</li>
                         <li>Destination: {foundTrip.destination}</li>
+                        <li>Created By: {foundTrip.User.firstName}</li>
                     </div>
                     <div>
                         <Link to={`/trips/${foundTrip.id}/edit`}>
