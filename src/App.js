@@ -9,6 +9,8 @@ import AddTrip from "./components/AddTrip";
 import Signup from "./components/Signup";
 import Profile from "./components/Profile";
 import EditProfile from "./components/EditProfile";
+import ViewTrip from "./components/ViewTrip";
+import EditTrip from "./components/EditTrip";
 
 class App extends Component {
   constructor(props) {
@@ -76,10 +78,26 @@ class App extends Component {
                   />
                 )}
               />
+              <Route exact path="/trips/:id"
+                render={(caseyProps) => (
+                  <ViewTrip
+                    trip={this.state.trips}
+                    { ... caseyProps}
+                  />
+                )}
+              />
               <Route exact path="/profile/:id/edit"
                 render={(caseyProps) => (
                   <EditProfile
                     user={this.state.users}
+                    { ... caseyProps}
+                  />
+                )}
+              />
+              <Route exact path="/trips/:id/edit"
+                render={(caseyProps) => (
+                  <EditTrip
+                    trip={this.state.trips}
                     { ... caseyProps}
                   />
                 )}
