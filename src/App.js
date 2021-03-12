@@ -46,7 +46,7 @@ class App extends Component {
         { this.state.apiDataLoaded
         ?
           <div>
-            {console.log(this.state.trips[0].name)}
+            {console.log(this.state.trips[1].Days)}
             <div>
               <h1>Travel App Frontend</h1>
             </div>
