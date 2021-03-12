@@ -20,6 +20,14 @@ const ViewTrip = (props) => {
                         <li>Created By: {foundTrip.User.firstName}</li>
                     </div>
                     <div>
+                        Here are the days in this trip: <br />
+                        {foundTrip.Days.map(day => (
+                            <Link to={`/trips/${foundTrip.id}/day/${day.id}`} key={day.id}>
+                                <li key={day.id}>Day: {day.date}</li>
+                            </Link>
+                        ))}
+                    </div>
+                    <div>
                         <Link to={`/trips/${foundTrip.id}/edit`}>
                             <button>Edit Trip</button>
                         </Link>

@@ -11,6 +11,7 @@ import Profile from "./components/Profile";
 import EditProfile from "./components/EditProfile";
 import ViewTrip from "./components/ViewTrip";
 import EditTrip from "./components/EditTrip";
+import ViewDay from "./components/ViewDay";
 
 class App extends Component {
   constructor(props) {
@@ -97,6 +98,14 @@ class App extends Component {
               <Route exact path="/trips/:id/edit"
                 render={(caseyProps) => (
                   <EditTrip
+                    trip={this.state.trips}
+                    { ... caseyProps}
+                  />
+                )}
+              />
+              <Route exact path="/trips/:tripId/day/:dayId"
+                render={(caseyProps) => (
+                  <ViewDay
                     trip={this.state.trips}
                     { ... caseyProps}
                   />
