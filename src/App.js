@@ -13,6 +13,7 @@ import ViewTrip from "./components/ViewTrip";
 import EditTrip from "./components/EditTrip";
 import ViewDay from "./components/ViewDay";
 import NewDay from "./components/NewDay";
+import LandingPage from "./components/LandingPage";
 
 class App extends Component {
   constructor(props) {
@@ -52,20 +53,44 @@ class App extends Component {
               <h1>Travel App Frontend</h1>
             </div>
             <div>
-              <Route exact path="/trips"
-                render={() => (
-                  <Trips trips={this.state.trips} />
-                )}
-              />
+              <Switch>
+                <Route exact path="/trips/home"
+                  render={() => (
+                    <LandingPage 
+                    users={this.state.users} />
+                    )}
+                />
+                <Route exact path="/trips/new"
+                  render={() => (
+                    <AddTrip/>
+                    )}
+                />
+                <Route exact path="/trips"
+                  render={() => (
+                    <Trips trips={this.state.trips} />
+                    )}
+                />
+                <Route exact path="/trips/:id"
+                  render={(caseyProps) => (
+                    <ViewTrip
+                      trip={this.state.trips}
+                      { ... caseyProps}
+                    />
+                  )}
+                />
+                <Route exact path="/trips/:id/edit"
+                  render={(caseyProps) => (
+                    <EditTrip
+                      trip={this.state.trips}
+                      { ... caseyProps}
+                    />
+                  )}
+                />
+              </Switch>  
               <Route exact path="/users" 
                 render={() => (
                   <Users users={this.state.users} />
-                )}
-              />
-              <Route exact path="/trips/new"
-                render={() => (
-                  <AddTrip/>
-                )}
+                  )}
               />
               <Route exact path="/users/signup"
                 render={() => (
@@ -80,14 +105,6 @@ class App extends Component {
                   />
                 )}
               />
-              <Route exact path="/trips/:id"
-                render={(caseyProps) => (
-                  <ViewTrip
-                    trip={this.state.trips}
-                    { ... caseyProps}
-                  />
-                )}
-              />
               <Route exact path="/profile/:id/edit"
                 render={(caseyProps) => (
                   <EditProfile
@@ -96,14 +113,7 @@ class App extends Component {
                   />
                 )}
               />
-              <Route exact path="/trips/:id/edit"
-                render={(caseyProps) => (
-                  <EditTrip
-                    trip={this.state.trips}
-                    { ... caseyProps}
-                  />
-                )}
-              />
+
               <Switch>
                 <Route exact path="/trips/:tripId/day/new"
                   render={(caseyProps) => (

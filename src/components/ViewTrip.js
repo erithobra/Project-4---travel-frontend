@@ -28,8 +28,11 @@ const ViewTrip = (props) => {
                         ))}
                     </div>
                     <div>
+                        <Link to={`/trips/${foundTrip.id}/day/new`}>
+                            <button>Add Day to Trip</button>
+                        </Link>
                         <Link to={`/trips/${foundTrip.id}/edit`}>
-                            <button>Edit Trip</button>
+                            <button>Edit Trip Info </button>
                         </Link>
                     </div>
                 </div>

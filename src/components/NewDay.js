@@ -1,11 +1,21 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-const NewDay = () => {
+const NewDay = (props) => {
     console.log("this is a test")
+    console.log(props.trip[0].id)
+
+    const foundTrip = props.trip.find(trip => {
+        console.log(trip.id)
+        console.log(props.match)
+        return trip.id === parseInt(props.match.params.tripId)
+    })
+
+    console.log(foundTrip)
+
     const [date, setDate] = useState("");
     const [journal, setJournal] = useState("");
-    const [tripId, setTripId] = useState("1");
+    const [tripId, setTripId] = useState(foundTrip.id);
     
     function handleJournalChange(e) {
         e.preventDefault();
@@ -18,21 +28,6 @@ const NewDay = () => {
         setDate(e.target.value);
     }
     
-    // function AddDay(e) {
-    //     e.preventDefault();
-    //     const data = {
-    //         date,
-    //         journal,
-    //         tripId
-    //     }
-    //     console.log(data)
-    //     useEffect(() => {
-    //         console.log("this is a test also"); 
-    //         axios.post("localhost:3001/trips/1/day/new", data)
-    //         // console.log(response)
-    //     })
-    // }
-
     const AddDay = async (e) => {
         e.preventDefault();
         const data = {
