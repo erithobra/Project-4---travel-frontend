@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import './App.css';
-import { Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 
 import Trips from "./components/Trips";
 import Users from "./components/Users";
@@ -12,6 +12,7 @@ import EditProfile from "./components/EditProfile";
 import ViewTrip from "./components/ViewTrip";
 import EditTrip from "./components/EditTrip";
 import ViewDay from "./components/ViewDay";
+import NewDay from "./components/NewDay";
 
 class App extends Component {
   constructor(props) {
@@ -103,14 +104,24 @@ class App extends Component {
                   />
                 )}
               />
-              <Route exact path="/trips/:tripId/day/:dayId"
-                render={(caseyProps) => (
-                  <ViewDay
-                    trip={this.state.trips}
-                    { ... caseyProps}
-                  />
-                )}
-              />
+              <Switch>
+                <Route exact path="/trips/:tripId/day/new"
+                  render={(caseyProps) => (
+                    <NewDay
+                      trip={this.state.trips}
+                      { ... caseyProps}
+                    />
+                  )}
+                />
+                <Route exact path="/trips/:tripId/day/:dayId"
+                  render={(caseyProps) => (
+                    <ViewDay
+                      trip={this.state.trips}
+                      { ... caseyProps}
+                    />
+                  )}
+                />
+              </Switch>
             </div> 
           </div>
         : 
