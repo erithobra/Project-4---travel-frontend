@@ -29,7 +29,6 @@
 .tripBody {
     width: 65%;
     margin: auto;
-    border: solid blue 3px;
     display: flex;
     justify-content: space-between;
     
@@ -40,7 +39,6 @@
     display: flex;
     flex-wrap: wrap;
     margin: 0 auto;
-    border: solid green 3px;
     justify-content: space-around;
     height: max-content;
 }
@@ -56,13 +54,22 @@
 .thumbnail {
     width: 100px;
     height: 100px;
-    border: solid black 3px;
     margin: 10px;
+    position: relative;
+    overflow: hidden;
+}
+
+.thumbnail img {
+    height: 100%;
+    position: relative;
+    left: 50%;
+    top: 50%;
+    margin-left: -100%;
+    margin-top: -50%;
 }
 
 .dayContainer {
     display: flex;
-    border: solid black 3px;
     width: 60%;
     flex-direction: column;
 }
@@ -72,13 +79,11 @@
 } */
 
 .day {
-    border: solid hotpink 3px;
     width: 70%;
     margin: 10px auto;
 }
 
 .journalEntry {
-    border: solid black 3px;
     height: 75px;
     
 }

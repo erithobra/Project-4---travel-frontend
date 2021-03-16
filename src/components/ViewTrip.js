@@ -30,19 +30,15 @@ const ViewTrip = (props) => {
                             <Link to={`/trips/${foundTrip.id}/day/new`}>
                                 <button>Add new photo...</button>
                             </Link>
-                            <div className="thumbnail">
-                                thumbnail
-                            </div>
-                            <div className="thumbnail">
-                                thumbnail
-                            </div>
-                            <div className="thumbnail">
-                                thumbnail
-                            </div>
-                            <div className="thumbnail">
-                                thumbnail
-                            </div>
-                            <p> see more... </p>
+                            {foundTrip.Photos.map(photo => (
+                                <div className="thumbnail">
+{/* OPEN ISSUE: LINK DOES NOT SEND TO CORRECT LOCATION*/}
+                                    <Link to={`${photo.photo}`}>
+                                        <img src={`${photo.photo}`} alt="vacation"/>
+                                    </Link>
+                                </div>
+                            ))}
+                            {/* <p> see more... </p> */}
                         </div>
                         <div className="dayContainer">
                             <Link to={`/trips/${foundTrip.id}/day/new`}>
@@ -52,6 +48,7 @@ const ViewTrip = (props) => {
                             {foundTrip.Days.map(day => (
                                 <Link className = "day" to={`/trips/${foundTrip.id}/day/${day.id}`} key={day.id}>                                
                                     <div className="dayInfo">
+                                        
                                         <p>{day.date}</p>
                                     </div>
                                     <div className="journalEntry">
