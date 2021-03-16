@@ -27,7 +27,9 @@ const ViewTrip = (props) => {
                     </div>
                     <div className="tripBody">
                         <div className="galleryContainer">
-                            <p> add new photo </p>
+                            <Link to={`/trips/${foundTrip.id}/day/new`}>
+                                <button>Add new photo...</button>
+                            </Link>
                             <div className="thumbnail">
                                 thumbnail
                             </div>
@@ -43,23 +45,25 @@ const ViewTrip = (props) => {
                             <p> see more... </p>
                         </div>
                         <div className="dayContainer">
-                            <div className="day">
-                                <p>Add new day...</p>
-                                <p>Day</p>
-                                <p>Date</p>
-                                <p>Journal entry that goes on for a while</p>
-                            </div>
+                            <Link to={`/trips/${foundTrip.id}/day/new`}>
+                                <button>Add new day to trip...</button>
+                            </Link>
+                            {/* <p>Add new day...</p> */}
+                            {foundTrip.Days.map(day => (
+                                <Link className = "day" to={`/trips/${foundTrip.id}/day/${day.id}`} key={day.id}>                                
+                                    <div className="dayInfo">
+                                        <p>{day.date}</p>
+                                    </div>
+                                    <div className="journalEntry">
+                                        <p>{day.journal}</p>
+                                    </div>
+                                </Link>
+                            ))}
                         </div>
                     </div>
 
 
-
-
-
-
-
-
-                    <h1>Trip Page</h1>
+                    {/* <h1>Trip Page</h1>
                     <div>
                         <li>Trip Name: {foundTrip.name}</li>
                         <li>Start Date: {foundTrip.startDate}</li>
@@ -82,7 +86,7 @@ const ViewTrip = (props) => {
                         <Link to={`/trips/${foundTrip.id}/edit`}>
                             <button>Edit Trip Info </button>
                         </Link>
-                    </div>
+                    </div> */}
                 </div>
             ) :
                 <p>no trip data found</p>

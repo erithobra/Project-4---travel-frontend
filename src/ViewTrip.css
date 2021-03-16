@@ -32,18 +32,24 @@
     border: solid blue 3px;
     display: flex;
     justify-content: space-between;
+    
 }
 
 .galleryContainer {
     width: 40%;
     display: flex;
     flex-wrap: wrap;
-    margin: auto;
+    margin: 0 auto;
     border: solid green 3px;
-    justify-content: space-evenly;
+    justify-content: space-around;
+    height: max-content;
 }
 
 .galleryContainer p {
+    width: 100%;
+}
+
+.galleryContainer a {
     width: 100%;
 }
 
@@ -55,6 +61,51 @@
 }
 
 .dayContainer {
+    display: flex;
     border: solid black 3px;
     width: 60%;
+    flex-direction: column;
+}
+
+/* .dayContainer p {
+    width: 100%;
+} */
+
+.day {
+    border: solid hotpink 3px;
+    width: 70%;
+    margin: 10px auto;
+}
+
+.journalEntry {
+    border: solid black 3px;
+    height: 75px;
+    
+}
+
+.journalEntry p {
+    /* display: flex; */
+    /* flex-wrap: wrap; */
+    /* align-content: left; */
+    margin: auto;
+    /* overflow-wrap: break-word; */
+    width: 98%;
+    background-color: lightgray;
+    text-align: left;
+    max-height: 75px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    
+    
+
+}
+
+.dayInfo {
+    display: flex;
+    justify-content: space-between;
+}
+
+.dayInfo p {
+    width: max-content;
+    margin: 5px;
 }
