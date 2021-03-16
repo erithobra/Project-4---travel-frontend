@@ -1,5 +1,5 @@
 import React from 'react';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const ViewDay = (props) => {
 
@@ -20,6 +20,9 @@ const ViewDay = (props) => {
         <div>
             <h3>This is a day page.</h3>
             Journal Entry: {foundDay.journal}
+            <Link to={`/trips/${foundTrip.id}/edit`}>
+                <button>Edit Trip Info </button>
+            </Link>
         </div>
     )
 }

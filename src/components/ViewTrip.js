@@ -1,11 +1,21 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import styled from 'styled-components';
+
+const DayDiv = styled.div`
+backgroundImage: 
+
+`
 
 const ViewTrip = (props) => {
+
+
 
     const foundTrip = props.trip.find(trip => {
         return trip.id === parseInt(props.match.params.id);
     })
+
+
 
     return (
         <div>
@@ -46,15 +56,28 @@ const ViewTrip = (props) => {
                             </Link>
                             {/* <p>Add new day...</p> */}
                             {foundTrip.Days.map(day => (
-                                <Link className = "day" to={`/trips/${foundTrip.id}/day/${day.id}`} key={day.id}>                                
-                                    <div className="dayInfo">
-                                        
+                                
+                                <Link style={{
+                                    backgroundImage: `
+                                        linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(255, 255, 255, 1.0)),
+                                        url("https://i.imgur.com/9IFJycx.jpg")`,
+                                    backgroundSize: "cover",
+                                    color: "white",
+                                    textDecoration: "none",
+                                    backgroundColor: "black"
+                                    
+                                }}className = "day" to={`/trips/${foundTrip.id}/day/${day.id}`} key={day.id}>                                
+                                    {/* <DayDiv> */}
+                                        <div  
+                                        className="dayInfo">
                                         <p>{day.date}</p>
                                     </div>
                                     <div className="journalEntry">
                                         <p>{day.journal}</p>
                                     </div>
+                                    {/* </DayDiv> */}
                                 </Link>
+
                             ))}
                         </div>
                     </div>
