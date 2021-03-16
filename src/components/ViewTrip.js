@@ -65,8 +65,7 @@ const ViewTrip = (props) => {
                                     color: "white",
                                     textDecoration: "none",
                                     backgroundColor: "black"
-                                    
-                                }}className = "day" to={`/trips/${foundTrip.id}/day/${day.id}`} key={day.id}>                                
+                                    }}className = "day" to={`/trips/${foundTrip.id}/day/${day.id}`} key={day.id}>                                
                                     {/* <DayDiv> */}
                                         <div  
                                         className="dayInfo">

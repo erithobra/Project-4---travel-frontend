@@ -1,12 +1,18 @@
 .profilePicture {
-    border: solid black 3px;
+
     width: 200px;
     height: 200px;
     border-radius: 25px;
     margin: auto;
     position: relative;
     overflow: hidden;
+    margin-top: 50px;
     
+}
+
+.tripIndex {
+    width:max-content;
+    margin: auto;
 }
 
 .profilePicture img {
@@ -21,7 +27,6 @@
 }
 
 .tripContainer {
-    border: solid black 3px;
     width: 450px;
     height: 200px;
     border-radius: 25px;
@@ -29,8 +34,38 @@
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
+    overflow: hidden;
+    position: relative;
 }
 
-.label{
+.labelContainer {
+    height: 50px;
+    width: 100%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.0))
+}
+
+#labelName{
     margin: 15px;
+    position: absolute;
+    left: 1%;
+    bottom: 1%;
+    font-size: x-large;
+    font-weight: 600;
+}
+
+#labelDate{
+    margin: 15px;
+    position: absolute;
+    right: 1%;
+    bottom: 1%;
+    font-size: x-large;
+    font-weight: 600;
+}
+
+.profileButtons {
+    padding-bottom: 10px;
+}
+
+.tripPreviewImage {
+    width: 100%;
 }

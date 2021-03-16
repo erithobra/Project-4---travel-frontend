@@ -1,0 +1,15 @@
+.landingPageH3 {
+    background-color: #046271;
+    width: 400px;
+    height: 150px;
+    vertical-align: middle;
+    display: table-cell;
+    border-radius: 25px;
+    padding: 10px;
+}
+
+.landingPage {
+    width: max-content;
+    margin: auto;
+    margin-top: 50px;
+}

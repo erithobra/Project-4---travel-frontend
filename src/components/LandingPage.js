@@ -60,20 +60,25 @@ const LandingPage = (props) => {
                         }}
                     />
                 :
-                    <div>
-                        <h3>This is the landing page!</h3>
+                    <div className="landingPage">
                         <form onSubmit={ SignIn }>
-                            User: <input
-                                name="username"
-                                value={ state.user }
-                                onChange={ handleChange }
-                            /> <br />
-                            Password: <input
-                                name="password"
-                                value={ state.password }
-                                onChange={ handleChange }
-                            /> <br />
-                            <input type="submit" value="Sign In" />
+                            <h3 className="landingPageH3">
+                                Sign in to view your travel journal!
+                                <br /> <br />
+                                <input
+                                    name="username"
+                                    value={ state.user }
+                                    placeholder="Username"
+                                    onChange={ handleChange }
+                                /> <br />
+                                <input
+                                    name="password"
+                                    value={ state.password }
+                                    placeholder="Password"
+                                    onChange={ handleChange }
+                                /> <br /> <br />
+                                <input type="submit" value="Sign In" />
+                            </h3>
                         </form>
                     </div>
             }

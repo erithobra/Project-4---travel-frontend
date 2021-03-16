@@ -4,6 +4,7 @@ import './App.css';
 import './Profile.css';
 import './ViewTrip.css';
 import './Day.css';
+import './LandingPage.css';
 import { Route, Switch } from 'react-router-dom';
 
 import Trips from "./components/Trips";
@@ -53,9 +54,6 @@ class App extends Component {
         ?
           <div>
             {console.log(this.state.trips[1].Days)}
-            <div>
-              <h1>Travel App Frontend</h1>
-            </div>
             <div>
               <Switch>
                 <Route exact path="/trips/home"
