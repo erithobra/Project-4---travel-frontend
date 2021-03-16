@@ -4,6 +4,20 @@
     height: 200px;
     border-radius: 25px;
     margin: auto;
+    position: relative;
+    overflow: hidden;
+    
+}
+
+.profilePicture img {
+    
+    max-height: 110%;
+    border-radius: 25px;
+    position: relative;
+    left: 50%;
+    top: 50%;
+    margin-left: -100%;
+    margin-top: -55%;
 }
 
 .tripContainer {

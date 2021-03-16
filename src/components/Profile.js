@@ -12,7 +12,7 @@ const Profile = (props) => {
             {foundUser ? (
                 <div>
                     <div className="profilePicture">
-                        this is a placeholder for the profile picture
+                        <img src={`${foundUser.profilePicture}`} alt="profile"/>
                     </div>
                     <div> 
                         {foundUser.firstName} {foundUser.lastName}
