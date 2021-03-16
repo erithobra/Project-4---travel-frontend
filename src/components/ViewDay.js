@@ -18,10 +18,11 @@ const ViewDay = (props) => {
     console.log("foundDay: ", foundDay)
     return (
         <div>
-            <h3>This is a day page.</h3>
-            Journal Entry: {foundDay.journal}
-            <Link to={`/trips/${foundTrip.id}/edit`}>
-                <button>Edit Trip Info </button>
+            <h3>{foundTrip.name} | {foundDay.date}</h3>
+            {foundDay.journal}
+            <br />
+            <Link to={`/trips/${foundTrip.id}/day/${foundDay.id}/edit`}> <br />
+                <button>Edit Entry </button>
             </Link>
         </div>
     )

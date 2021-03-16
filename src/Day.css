@@ -1,0 +1,8 @@
+#journalEntry {
+    width: 50%;
+    max-width: 300px;
+    /* min-width: 350px; */
+    min-height: 25px;
+    overflow-wrap: break-word;
+    height: 250px;
+}

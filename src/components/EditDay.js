@@ -1,32 +1,34 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-const NewDay = (props) => {
+const EditDay = (props) => {
 
     const foundTrip = props.trip.find(trip => {
-        console.log(trip.id)
-        console.log(props.match)
-        return trip.id === parseInt(props.match.params.tripId)
+        console.log("trip.id: ", trip.id)
+        return trip.id === parseInt(props.match.params.tripId);
     })
 
-    console.log(foundTrip)
+    const foundDay = foundTrip.Days.find(day => {
+        console.log("day.id: ", day.id)
+        return day.id === parseInt(props.match.params.dayId)
+    })
 
-    const [date, setDate] = useState("");
-    const [journal, setJournal] = useState("");
+    const [date, setDate] = useState(`${foundDay.date}`);
+    const [journal, setJournal] = useState(`${foundDay.journal}`);
     const [tripId, setTripId] = useState(foundTrip.id);
-    
+
     function handleJournalChange(e) {
         e.preventDefault();
         setJournal(e.target.value);
 
     }
-
+    
     function handleDateChange(e) {
         e.preventDefault();
         setDate(e.target.value);
     }
-    
-    const AddDay = async (e) => {
+
+    const EditDay = async (e) => {
         e.preventDefault();
         const data = {
             date,
@@ -34,27 +36,27 @@ const NewDay = (props) => {
             tripId
         }
         console.log(data)
-        await axios.post(`http://localhost:3001/trips/${foundTrip.id}/day/new`, data)
+        await axios.put(`http://localhost:3001/trips/${foundTrip.id}/day/${foundDay.id}/edit`, data)
         console.log(data)
     }
 
     return (
         <div>
             <h3>This is a new day!</h3>
-            <form onSubmit={ AddDay }>
+            <form onSubmit={ EditDay }>
                 <input
                     value={ date }
                     onChange={ handleDateChange }
-                />
-                <input
+                /> <br />
+                <textarea id="journalEntry"
                     value={ journal }
                     onChange={ handleJournalChange }
-                />
-                <input type="submit" value="Add New Entry" />
+                /> <br />
+                <input type="submit" value="Save Changes" />
             </form>
         </div>
     )
+
 }
 
-
-export default NewDay;
+export default EditDay;

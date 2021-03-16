@@ -3,6 +3,7 @@ import axios from "axios";
 import './App.css';
 import './Profile.css';
 import './ViewTrip.css';
+import './Day.css';
 import { Route, Switch } from 'react-router-dom';
 
 import Trips from "./components/Trips";
@@ -16,6 +17,7 @@ import EditTrip from "./components/EditTrip";
 import ViewDay from "./components/ViewDay";
 import NewDay from "./components/NewDay";
 import LandingPage from "./components/LandingPage";
+import EditDay from "./components/EditDay";
 
 class App extends Component {
   constructor(props) {
@@ -137,6 +139,15 @@ class App extends Component {
                     />
                   )}
                 />
+                <Route exact path="/trips/:tripId/day/:dayId/edit"
+                  render={(caseyProps) => (
+                    <EditDay
+                      trip={this.state.trips}
+                      { ... caseyProps}
+                    />
+                  )}
+                />
+
               </Switch>
             </div> 
           </div>
