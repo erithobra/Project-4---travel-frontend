@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import axios from "axios";
 import './App.css';
+import './Profile.css';
+import './ViewTrip.css';
 import { Route, Switch } from 'react-router-dom';
 
 import Trips from "./components/Trips";
@@ -57,18 +59,22 @@ class App extends Component {
                 <Route exact path="/trips/home"
                   render={() => (
                     <LandingPage 
-                    users={this.state.users} />
-                    )}
+                      users={this.state.users} 
+                    />
+                  )}
                 />
                 <Route exact path="/trips/new"
-                  render={() => (
-                    <AddTrip/>
-                    )}
+                  render={(caseyProps) => (
+                    <AddTrip
+                      user={this.state.users}
+                      { ... caseyProps}
+                    />
+                  )}
                 />
                 <Route exact path="/trips"
                   render={() => (
                     <Trips trips={this.state.trips} />
-                    )}
+                  )}
                 />
                 <Route exact path="/trips/:id"
                   render={(caseyProps) => (

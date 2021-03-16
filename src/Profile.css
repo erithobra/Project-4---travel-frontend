@@ -1,0 +1,22 @@
+.profilePicture {
+    border: solid black 3px;
+    width: 200px;
+    height: 200px;
+    border-radius: 25px;
+    margin: auto;
+}
+
+.tripContainer {
+    border: solid black 3px;
+    width: 450px;
+    height: 200px;
+    border-radius: 25px;
+    margin: 15px auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.label{
+    margin: 15px;
+}

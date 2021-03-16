@@ -2,8 +2,6 @@ import React, { useState } from 'react';
 import axios from 'axios';
 
 const NewDay = (props) => {
-    console.log("this is a test")
-    console.log(props.trip[0].id)
 
     const foundTrip = props.trip.find(trip => {
         console.log(trip.id)

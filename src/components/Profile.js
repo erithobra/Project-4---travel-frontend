@@ -11,25 +11,37 @@ const Profile = (props) => {
         <div>
             {foundUser ? (
                 <div>
-                    <h1>Profile Page</h1>
-                    <div>
-                        <li>First Name: {foundUser.firstName}</li>
-                        <li>Last Name: {foundUser.lastName}</li>
-                        <li>Username: {foundUser.username}</li>
-                        <li>Password: {foundUser.password}</li>
+                    <div className="profilePicture">
+                        this is a placeholder for the profile picture
                     </div>
-                    <div>
-                        Trips created: <br />
-                        {foundUser.Trips.map(trip => (
-                            <Link to={`/trips/${trip.id}`} key={trip.id}>
-                                <li key={trip.id}>{trip.name}</li>
-                            </Link>
-                        ))}
-                    </div>
-                    <div>
+                    <div> 
+                        {foundUser.firstName} {foundUser.lastName}
+                        <br />
+                    {/* </div>
+                    <div> */}
                         <Link to={`/profile/${foundUser.id}/edit`}>
                             <button>Edit User</button>
                         </Link>
+                        {console.log(props)}
+                        <Link 
+                            to= {{
+                                pathname: "/trips/new",
+                                state: { user: foundUser.id }
+                            }}
+                        >
+                            <button>Add New Trip</button>
+                        </Link>
+                    </div>
+                    <div>
+                        {foundUser.Trips.map(trip => (
+                            <Link to={`/trips/${trip.id}`} key={trip.id}>
+                                <div className="tripContainer" key={`${trip.id}.div`}>
+                                    <div className="label" key={trip.id}>{trip.name}</div>
+                                    <div className="label" key={`${trip.id}${trip.startDate}`}>{trip.startDate}</div>
+                                </div>
+                            </Link>
+                            
+                        ))}
                     </div>
                 </div>
             ) :

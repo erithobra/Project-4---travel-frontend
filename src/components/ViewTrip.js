@@ -11,6 +11,54 @@ const ViewTrip = (props) => {
         <div>
             {foundTrip ? (
                 <div>
+                    <div className="tripHeader">
+                        <div className="tripDates">
+                            <p>Start: {foundTrip.startDate}</p>
+                            <p>End: {foundTrip.endDate}</p>
+                        </div>
+                        <div className="tripIdent">
+                            <p>{foundTrip.name}</p>
+                            <p>Destination: {foundTrip.destination}</p>
+                        </div>
+                        <div className="tripLinks">
+                            <p>Journal</p>
+                            <p>Information</p>
+                        </div>
+                    </div>
+                    <div className="tripBody">
+                        <div className="galleryContainer">
+                            <p> add new photo </p>
+                            <div className="thumbnail">
+                                thumbnail
+                            </div>
+                            <div className="thumbnail">
+                                thumbnail
+                            </div>
+                            <div className="thumbnail">
+                                thumbnail
+                            </div>
+                            <div className="thumbnail">
+                                thumbnail
+                            </div>
+                            <p> see more... </p>
+                        </div>
+                        <div className="dayContainer">
+                            <div className="day">
+                                <p>Add new day...</p>
+                                <p>Day</p>
+                                <p>Date</p>
+                                <p>Journal entry that goes on for a while</p>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+
+
+
+
                     <h1>Trip Page</h1>
                     <div>
                         <li>Trip Name: {foundTrip.name}</li>

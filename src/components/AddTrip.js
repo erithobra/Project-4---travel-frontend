@@ -5,12 +5,12 @@ import React, { Component } from 'react';
 class AddTrip extends Component {
     constructor(props) {
         super(props)
-
         this.state = {
             name: '',
             startDate: '',
             endDate: '',
-            destination: ''
+            destination: '',
+            userId: props.location.state.user
         }
     }
 
@@ -28,7 +28,8 @@ class AddTrip extends Component {
             name: this.state.name,
             startDate: this.state.startDate,
             endDate: this.state.endDate,
-            destination: this.state.destination
+            destination: this.state.destination,
+            userId: this.state.userId
         }
         console.log(data);
 
