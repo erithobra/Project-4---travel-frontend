@@ -49,28 +49,28 @@ class AddTrip extends Component {
                         placeholder="Name"
                         value={name}
                         onChange={this.handleChange}
-                    />
+                    /> <br />
                     <input
                         type="text"
                         name="startDate"
                         placeholder="Start Date"
                         value={startDate}
                         onChange={this.handleChange}
-                    />
+                    /> <br />
                     <input
                         type="text"
                         name="endDate"
                         placeholder="End Date"
                         value={endDate}
                         onChange={this.handleChange}
-                    />
+                    /> <br />
                     <input
                         type="text"
                         name="destination"
                         placeholder="Destination"
                         value={destination}
                         onChange={this.handleChange}
-                    />
+                    /> <br /> <br />
                     <input type="submit" value="Create Trip" />
                 </form>
             </div>

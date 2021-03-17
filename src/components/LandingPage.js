@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Redirect } from 'react-router';
+import { Link } from 'react-router-dom';
 
 const LandingPage = (props) => {
     console.log(props.users)
@@ -9,8 +10,6 @@ const LandingPage = (props) => {
         id: "",
         loggedIn: false
     })
-    // const [user, setUser] = useState("");
-    // const [password, setPassword] = useState("");
     
     const handleChange = (e) => {
         console.log(state.username)
@@ -21,23 +20,6 @@ const LandingPage = (props) => {
         }))
         console.log(state.username)
     }
-
-    // const login = (e) => {
-    //     e.preventDefault();
-    //     const foundUser = user.find
-
-    // }
-
-
-    // function handleUserChange(e) {
-    //     e.preventDefault();
-    //     setUser(e.target.value);
-    // }
-
-    // function handlePasswordChange(e) {
-    //     e.preventDefault();
-    //     setPassword(e.target.value);
-    // }
 
     const SignIn = (e) => {
         e.preventDefault();
@@ -79,6 +61,8 @@ const LandingPage = (props) => {
                                 /> <br /> <br />
                                 <input type="submit" value="Sign In" />
                             </h3>
+                            <h4>Don't have a profile?</h4>
+                            <Link to="/users/signup">Sign up here!</Link>
                         </form>
                     </div>
             }

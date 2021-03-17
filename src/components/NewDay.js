@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 const NewDay = (props) => {
 
@@ -13,7 +15,8 @@ const NewDay = (props) => {
 
     const [date, setDate] = useState("");
     const [journal, setJournal] = useState("");
-    const [tripId, setTripId] = useState(foundTrip.id);
+    const tripId = useState(foundTrip.id);
+    const history = useHistory()
     
     function handleJournalChange(e) {
         e.preventDefault();
@@ -35,23 +38,27 @@ const NewDay = (props) => {
         }
         console.log(data)
         await axios.post(`http://localhost:3001/trips/${foundTrip.id}/day/new`, data)
+        history.push(`/trips/${foundTrip.id}`)
         console.log(data)
     }
 
     return (
         <div>
-            <h3>This is a new day!</h3>
+            <h3>Add new entry...</h3>
             <form onSubmit={ AddDay }>
                 <input
                     value={ date }
                     onChange={ handleDateChange }
-                />
-                <input
+                    placeholder="Date"
+                /> <br /> <br />
+                <textarea id="journalEntry"
                     value={ journal }
                     onChange={ handleJournalChange }
-                />
-                <input type="submit" value="Add New Entry" />
-            </form>
+                    placeholder="type here...."
+                /> <br /> <br />
+                <input type="submit" value="Create Entry" />
+            </form> <br />
+            <Link to={`/trips/${foundTrip.id}`}><button>Return to Trip</button></Link>
         </div>
     )
 }

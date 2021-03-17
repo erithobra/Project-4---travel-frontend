@@ -6,3 +6,8 @@
     overflow-wrap: break-word;
     height: 250px;
 }
+
+.viewDayJournalEntry {
+    width: 30%;
+    margin: 0 auto;
+}

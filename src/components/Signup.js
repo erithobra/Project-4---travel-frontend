@@ -9,7 +9,8 @@ class Signup extends Component {
             username: '',
             firstName: '',
             lastName: '',
-            password: ''
+            password: '',
+            profilePicture: ''
         }
     }
 
@@ -27,7 +28,8 @@ class Signup extends Component {
             username: this.state.username,
             firstName: this.state.firstName,
             lastName: this.state.lastName,
-            password: this.state.password
+            password: this.state.password,
+            profilePicture: this.state.profilePicture
         }
         console.log(data);
 
@@ -36,10 +38,10 @@ class Signup extends Component {
     }
 
     render() {
-        const { username, firstName, lastName, password } = this.state;
+        const { username, firstName, lastName, password, profilePicture } = this.state;
         return (
             <div>
-                <h1>New Trip Form</h1>
+                <h1>Create Profile</h1>
                 <form onSubmit={this.signup}>
                     <input
                         type="text"
@@ -47,28 +49,35 @@ class Signup extends Component {
                         placeholder="Username"
                         value={username}
                         onChange={this.handleChange}
-                    />
+                    /> <br />
+                        <input
+                            type="text"
+                            name="password"
+                            placeholder="Password"
+                            value={password}
+                            onChange={this.handleChange}
+                        /> <br />
                     <input
                         type="text"
                         name="firstName"
                         placeholder="First Name"
                         value={firstName}
                         onChange={this.handleChange}
-                    />
+                    /> <br />
                     <input
                         type="text"
                         name="lastName"
                         placeholder="Last Name"
                         value={lastName}
                         onChange={this.handleChange}
-                    />
+                    /> <br />
                     <input
                         type="text"
-                        name="password"
-                        placeholder="Password"
-                        value={password}
+                        name="profilePicture"
+                        placeholder="Link to Profile Picture"
+                        value={profilePicture}
                         onChange={this.handleChange}
-                    />
+                    /> <br /> <br />                    
                     <input type="submit" value="Signup" />
                 </form>
             </div>

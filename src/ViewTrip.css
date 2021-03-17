@@ -3,8 +3,6 @@
     width: 50%;
     margin: 50px auto 25px auto;
     justify-content: space-between;
-    border-bottom: solid #0EA8B9 3px;
-    padding-bottom: 20px;
 }
 
 .tripHeader h1 {
@@ -21,7 +19,7 @@
 
 .tripHeader h5 {
     /* background-color: blue; */
-    margin: auto;
+    margin: auto 3px;
 }
 
 .tripHeader h6 {
@@ -44,10 +42,13 @@
 
 .tripLinks {
     display: flex;
-
-    flex-direction: column;
     /* justify-content: center;
     align-items: flex-end; */
+}
+
+.tripLinks a {
+    text-decoration: none;
+    color: white;
 }
 
 .tripBody {
@@ -56,6 +57,7 @@
     display: flex;
     justify-content: space-between;
     border-top:  solid #0EA8B9 3px;
+    padding-top: 25px;
 }
 
 .galleryContainer {
@@ -104,15 +106,23 @@
     margin-bottom: 10px;
 }
 
+.addDayContainer {
+    width: 80%;
+    margin: 0 auto;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
 .day {
-    width: 70%;
+    width: 80%;
     margin: 10px auto;
     border-radius: 10px;
+    margin-right: 10px;
 }
 
 .journalEntry {
     height: 70px;
-    background: linear-gradient(to bottom, rgba(0, 0, 0, .2), rgba(255, 255, 255, 1));
+    background: linear-gradient(to bottom, rgba(0, 0, 0, .2), rgba(0, 0, 0, .1) 50%,rgba(255, 255, 255, 0.8) 85%, rgba(255, 255, 255, 1) 99%);
     border-radius: 0px 0px 10px 10px;
 }
 
@@ -134,7 +144,7 @@
     height: 30px;
     justify-content: space-between;
     border-radius: 10px 10px 0px 0px;
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, .2));
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, .2075));
 }
 
 .dayInfo p {

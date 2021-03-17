@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { Link, useHistory } from 'react-router-dom';
 
 const NewPhoto = (props) => {
 
@@ -12,7 +13,8 @@ const NewPhoto = (props) => {
     const [date, setDate] = useState("");
     const [photo, setPhoto] = useState("");
     const [location, setLocation] = useState("");
-    const [tripId, setTripId] = useState(foundTrip.id);
+    const tripId = useState(foundTrip.id);
+    const history = useHistory()
 
     function handleDateChange(e) {
         e.preventDefault();
@@ -39,27 +41,32 @@ const NewPhoto = (props) => {
         }
         console.log(data)
         await axios.post(`http://localhost:3001/trips/${foundTrip.id}/photo/new`, data)
+        history.push(`/trips/${foundTrip.id}`)
         console.log(data)
     }
     
     return (
         <div>
-            <h3>This is a new photo!</h3>
+            <h3>Add your new photo here...</h3>
             <form onSubmit={ AddPhoto }>
                 <input
                     value={ date }
                     onChange={ handleDateChange }
-                />
+                    placeholder="Date taken"
+                /> <br />
                 <input
                     value={ photo }
                     onChange={ handlePhotoChange }
-                />
+                    placeholder="Link to photo"
+                /> <br />
                 <input
                     value={ location }
                     onChange={ handleLocationChange }
-                />                
+                    placeholder="Location"
+                /> <br /> <br />
                 <input type="submit" value="Add Photo" />
-            </form>
+            </form> <br />
+            <Link to={`/trips/${foundTrip.id}`}><button>Return to Trip</button></Link>
         </div>
     )
 }

@@ -32,8 +32,8 @@ class App extends Component {
   }
 
   getTrips = async () => {
-    const trips = await axios.get("http://localhost:3001/trips")
-    const users = await axios.get("http://localhost:3001/users")
+    const trips = await axios.get("https://localhost:3001/trips" || "https://traveljournal-eb.herokuapp.com/trips")
+    const users = await axios.get("https://localhost:3001/users" || "https://traveljournal-eb.herokuapp.com/users")
 
     this.setState({
       trips: trips.data,
