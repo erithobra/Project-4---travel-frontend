@@ -1,29 +1,53 @@
 .tripHeader {
     display: flex;
     width: 50%;
-    margin: auto;
+    margin: 50px auto 25px auto;
     justify-content: space-between;
+    border-bottom: solid #0EA8B9 3px;
+    padding-bottom: 20px;
+}
+
+.tripHeader h1 {
+    /* background-color: gray; */
+    margin-top: auto;
+    margin-bottom: 12px;
+}
+
+.tripHeader h3 {
+    /* background-color: purple; */
+    margin-top: 12px;
+    margin-bottom: auto;
+}
+
+.tripHeader h5 {
+    /* background-color: blue; */
+    margin: auto;
+}
+
+.tripHeader h6 {
+    margin: auto;
 }
 
 .tripDates {
     display: flex;
     width: 33.3%;
     flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
+    /* align-items: flex-start;
+    justify-content: center; */
 }
 
 .tripIdent {
     display: flex;
     flex-direction: column;
+    width: 33.3%;
 }
 
 .tripLinks {
     display: flex;
-    width: 33.3%;
+
     flex-direction: column;
-    justify-content: center;
-    align-items: flex-end;
+    /* justify-content: center;
+    align-items: flex-end; */
 }
 
 .tripBody {
@@ -48,6 +72,7 @@
 
 .galleryContainer a {
     width: 100%;
+    margin-bottom: 10px;
 }
 
 .thumbnail {
@@ -74,9 +99,9 @@
     flex-direction: column;
 }
 
-/* .dayContainer p {
-    width: 100%;
-} */
+.dayContainer a {
+    margin-bottom: 10px;
+}
 
 .day {
     width: 70%;

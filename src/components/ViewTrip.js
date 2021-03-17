@@ -22,17 +22,20 @@ const ViewTrip = (props) => {
             {foundTrip ? (
                 <div>
                     <div className="tripHeader">
-                        <div className="tripDates">
-                            <p>Start: {foundTrip.startDate}</p>
-                            <p>End: {foundTrip.endDate}</p>
-                        </div>
                         <div className="tripIdent">
-                            <p>{foundTrip.name}</p>
-                            <p>Destination: {foundTrip.destination}</p>
+                            <h1>{foundTrip.name}</h1>
+                            <h3>Destination: {foundTrip.destination}</h3>
                         </div>
                         <div className="tripLinks">
-                            <p>Journal</p>
-                            <p>Information</p>
+                            {/* These are going to be links that switch the display
+                            between the journal and information pages. */}
+                            <h5>Journal | Information</h5>
+                        </div>
+                        <div className="tripDates">
+                            <h6>Start:</h6>
+                            <h5>{foundTrip.startDate}</h5>
+                            <h6>End:</h6>
+                            <h5>{foundTrip.endDate}</h5>
                         </div>
                     </div>
                     <div className="tripBody">
