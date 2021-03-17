@@ -55,29 +55,37 @@ const ViewTrip = (props) => {
                                 <button>Add new day to trip...</button>
                             </Link>
                             {/* <p>Add new day...</p> */}
-                            {foundTrip.Days.map(day => (
-                                
-                                <Link style={{
-                                    backgroundImage: `
-                                        linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(255, 255, 255, 1.0)),
-                                        url("https://i.imgur.com/9IFJycx.jpg")`,
-                                    backgroundSize: "cover",
-                                    color: "white",
-                                    textDecoration: "none",
-                                    backgroundColor: "black"
-                                    }}className = "day" to={`/trips/${foundTrip.id}/day/${day.id}`} key={day.id}>                                
-                                    {/* <DayDiv> */}
-                                        <div  
-                                        className="dayInfo">
-                                        <p>{day.date}</p>
-                                    </div>
-                                    <div className="journalEntry">
-                                        <p>{day.journal}</p>
-                                    </div>
-                                    {/* </DayDiv> */}
-                                </Link>
+                            {foundTrip.Days.map(day => {
+                            // looking at the date of each day in the Days table and 
+                            // finding a photo from the same date in the Photos table
+                                let dayIdNumber = day.id;
+                                let dayIndexNumber = foundTrip.Days.findIndex(elem => elem["id"] === dayIdNumber)
+                                let dayIndexNumberDate = foundTrip.Days[dayIndexNumber].date
+                                let photoIndexNumber = foundTrip.Photos.findIndex(elem => elem["date"] === dayIndexNumberDate)
+                                let dayPreviewPhoto = foundTrip.Photos[photoIndexNumber].photo
 
-                            ))}
+                                return(
+                                    <Link style={{
+                                        backgroundImage: `
+                                            linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(255, 255, 255, 1.0)),
+                                            url(${dayPreviewPhoto})`,
+                                        backgroundSize: "cover",
+                                        color: "white",
+                                        textDecoration: "none",
+                                        backgroundColor: "black"
+                                        }}className = "day" to={`/trips/${foundTrip.id}/day/${day.id}`} key={day.id}>                                
+                                        {/* <DayDiv> */}
+                                            <div  
+                                            className="dayInfo">
+                                            <p>{day.date}</p>
+                                        </div>
+                                        <div className="journalEntry">
+                                            <p>{day.journal}</p>
+                                        </div>
+                                        {/* </DayDiv> */}
+                                    </Link>
+                                )
+                            })}
                         </div>
                     </div>
 
