@@ -55,6 +55,7 @@
     margin: auto;
     display: flex;
     justify-content: space-between;
+    border-top:  solid #0EA8B9 3px;
 }
 
 .galleryContainer {

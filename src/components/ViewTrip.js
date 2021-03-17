@@ -61,6 +61,8 @@ const ViewTrip = (props) => {
                             {foundTrip.Days.map(day => {
                             // looking at the date of each day in the Days table and 
                             // finding a photo from the same date in the Photos table
+
+                            // currently, an error occurs if a day is loaded that does not have a picture from a matching date
                                 let dayIdNumber = day.id;
                                 let dayIndexNumber = foundTrip.Days.findIndex(elem => elem["id"] === dayIdNumber)
                                 let dayIndexNumberDate = foundTrip.Days[dayIndexNumber].date
