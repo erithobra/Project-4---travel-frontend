@@ -31,31 +31,38 @@ const Profile = (props) => {
                         </Link>
                     </div>
                     <div className="tripIndex">
-                        {foundUser.Trips.map(trip => (
+                        {foundUser.Trips.map(trips => {
+                        // finding the tripId and then using that to determine the 
+                        // index number of that trip in the Trips array
+                            let tripIdNumber = trips.id;
+                            let tripIndexNumber = foundUser.Trips.findIndex(elem => elem["id"] == tripIdNumber)
+
+                            return(
                             <Link 
-                                to={`/trips/${trip.id}`} key={trip.id}>
+                                to={`/trips/${trips.id}`} key={trips.id}>
                                 
                                 <div 
                                     style={{
                                         backgroundImage: `
                                             linear-gradient(to bottom, rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 1)),
-                                            url(${props.trip[1].Photos[0].photo})`,
+                                            url(${props.trip[tripIndexNumber].Photos[0].photo})`,
                                         backgroundSize: "cover",
                                         color: "white",
                                         textDecoration: "none",
                                         backgroundColor: "black"
                                     }}
                                     className="tripContainer" 
-                                    key={`${trip.id}.div`}
+                                    key={`${trips.id}.div`}
                                 >
                                     <div className="labelContainer">
-                                        <div id="labelName" key={trip.id}>{trip.name}</div>
-                                        <div id="labelDate" key={`${trip.id}${trip.startDate}`}>{trip.startDate}</div>
+                                        <div id="labelName" key={trips.id}>{trips.name}</div>
+                                        <div id="labelDate" key={`${trips.id}${trips.startDate}`}>{trips.startDate}</div>
                                     </div>
                                 </div>
+                                {console.log(typeof trips.id)}
                             </Link>
                             
-                        ))}
+                        )})}
                     </div>
                 </div>
             ) :
