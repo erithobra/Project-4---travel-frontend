@@ -37,7 +37,7 @@ const ViewTrip = (props) => {
                     </div>
                     <div className="tripBody">
                         <div className="galleryContainer">
-                            <Link to={`/trips/${foundTrip.id}/day/new`}>
+                            <Link to={`/trips/${foundTrip.id}/photo/new`}>
                                 <button>Add new photo...</button>
                             </Link>
                             {foundTrip.Photos.map(photo => (

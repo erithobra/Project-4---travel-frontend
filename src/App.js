@@ -19,6 +19,7 @@ import ViewDay from "./components/ViewDay";
 import NewDay from "./components/NewDay";
 import LandingPage from "./components/LandingPage";
 import EditDay from "./components/EditDay";
+import NewPhoto from "./components/NewPhoto";
 
 class App extends Component {
   constructor(props) {
@@ -107,6 +108,7 @@ class App extends Component {
                 render={(caseyProps) => (
                   <Profile
                     user={this.state.users}
+                    trip={this.state.trips}
                     { ... caseyProps}
                   />
                 )}
@@ -121,6 +123,14 @@ class App extends Component {
               />
 
               <Switch>
+                <Route exact path="/trips/:tripId/photo/new"
+                  render={(caseyProps) => (
+                    <NewPhoto
+                      trip={this.state.trips}
+                      { ... caseyProps}
+                    />
+                  )}
+                />
                 <Route exact path="/trips/:tripId/day/new"
                   render={(caseyProps) => (
                     <NewDay

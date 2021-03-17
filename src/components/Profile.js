@@ -7,6 +7,8 @@ const Profile = (props) => {
         return user.id === parseInt(props.match.params.id);
     })
 
+    console.log(props.trip[1].Photos[0].photo)
+
     return (
         <div>
             {foundUser ? (
@@ -19,7 +21,6 @@ const Profile = (props) => {
                         <Link to={`/profile/${foundUser.id}/edit`}>
                             <button>Edit User</button>
                         </Link>
-                        {console.log(props)}
                         <Link 
                             to= {{
                                 pathname: "/trips/new",
@@ -38,7 +39,7 @@ const Profile = (props) => {
                                     style={{
                                         backgroundImage: `
                                             linear-gradient(to bottom, rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 1)),
-                                            url("https://i.imgur.com/9IFJycx.jpg")`,
+                                            url(${props.trip[1].Photos[0].photo})`,
                                         backgroundSize: "cover",
                                         color: "white",
                                         textDecoration: "none",
