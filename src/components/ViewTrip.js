@@ -67,7 +67,7 @@ const ViewTrip = (props) => {
                                 return(
                                     <Link style={{
                                         backgroundImage: `
-                                            linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(255, 255, 255, 1.0)),
+
                                             url(${dayPreviewPhoto})`,
                                         backgroundSize: "cover",
                                         color: "white",
