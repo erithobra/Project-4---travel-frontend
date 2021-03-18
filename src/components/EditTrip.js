@@ -45,14 +45,14 @@ class EditTrip extends Component {
         }
         console.log(data);
         console.log(this.state.tripId)
-        const response = await axios.put(`http://localhost:3001/trips/${this.state.tripId}`, data);
+        const response = await axios.put(`${this.props.URL}/trips/${this.state.tripId}`, data);
         console.log(response)
         this.setState({
             redirect: false
         });
     }
     deleteTrip = async (e) => {
-        const deleteTrip = await axios.delete(`http://localhost:3001/trips/${this.state.tripId}`)
+        const deleteTrip = await axios.delete(`${this.props.URL}/trips/${this.state.tripId}`)
         this.setState({ // this doesn't work because the url ceases to exist as soon as axios.delete executes
             redirect: false
         })

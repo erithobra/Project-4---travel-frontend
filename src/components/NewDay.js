@@ -15,7 +15,7 @@ const NewDay = (props) => {
 
     const [date, setDate] = useState("");
     const [journal, setJournal] = useState("");
-    const tripId = useState(foundTrip.id);
+    const [tripId, setTripId] = useState(foundTrip.id);
     const history = useHistory()
     
     function handleJournalChange(e) {
@@ -37,7 +37,7 @@ const NewDay = (props) => {
             tripId
         }
         console.log(data)
-        await axios.post(`http://localhost:3001/trips/${foundTrip.id}/day/new`, data)
+        await axios.post(`${props.URL}/trips/${foundTrip.id}/day/new` || `http://localhost:3001/trips/${foundTrip.id}/day/new`, data)
         history.push(`/trips/${foundTrip.id}`)
         console.log(data)
     }

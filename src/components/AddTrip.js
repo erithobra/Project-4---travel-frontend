@@ -31,10 +31,7 @@ class AddTrip extends Component {
             destination: this.state.destination,
             userId: this.state.userId
         }
-        console.log(data);
-
-        const response = await axios.post("http://localhost:3001/trips/postNew", data);
-        console.log(response)
+        const response = await axios.post(`${this.props.URL}/trips/postNew`, data);
     }
 
     render() {

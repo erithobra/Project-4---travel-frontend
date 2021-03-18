@@ -17,7 +17,7 @@ const EditDay = (props) => {
 
     const [date, setDate] = useState(`${foundDay.date}`);
     const [journal, setJournal] = useState(`${foundDay.journal}`);
-    const tripId = useState(foundTrip.id);
+    const [tripId, setTripId] = useState(foundTrip.id);
     const history = useHistory()
 
     function handleJournalChange(e) {
@@ -39,9 +39,10 @@ const EditDay = (props) => {
             tripId
         }
         console.log(data)
-        await axios.put(`http://localhost:3001/trips/${foundTrip.id}/day/${foundDay.id}/edit`, data)
+        console.log(props.tripsURL)
+        await axios.put(`${props.URL}/trips/${foundTrip.id}/day/${foundDay.id}/edit`, data)
 
-        history.push(`/trips/${foundTrip.id}`)
+        // history.push(`/trips/${foundTrip.id}`)
         console.log(data)
     }
 
@@ -65,4 +66,4 @@ const EditDay = (props) => {
 
 }
 
-export default (EditDay);
+export default EditDay;

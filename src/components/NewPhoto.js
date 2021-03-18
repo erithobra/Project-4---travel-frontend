@@ -13,7 +13,7 @@ const NewPhoto = (props) => {
     const [date, setDate] = useState("");
     const [photo, setPhoto] = useState("");
     const [location, setLocation] = useState("");
-    const tripId = useState(foundTrip.id);
+    const [tripId,setTripId] = useState(foundTrip.id);
     const history = useHistory()
 
     function handleDateChange(e) {
@@ -39,10 +39,10 @@ const NewPhoto = (props) => {
             location,
             tripId
         }
-        console.log(data)
-        await axios.post(`http://localhost:3001/trips/${foundTrip.id}/photo/new`, data)
-        history.push(`/trips/${foundTrip.id}`)
-        console.log(data)
+
+        await axios.post(`${props.URL}/trips/${foundTrip.id}/photo/new`, data)
+        // history.push(`/trips/${foundTrip.id}`)
+
     }
     
     return (

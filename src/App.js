@@ -28,12 +28,14 @@ class App extends Component {
       trips: [],
       users: [],
       apiDataLoaded: false,
+      URL: 'http://localhost:3001',
+      // URL: 'https://traveljournal-eb.herokuapp.com',
     };
   }
 
   getTrips = async () => {
-    const trips = await axios.get("https://localhost:3001/trips" || "https://traveljournal-eb.herokuapp.com/trips")
-    const users = await axios.get("https://localhost:3001/users" || "https://traveljournal-eb.herokuapp.com/users")
+    const trips = await axios.get(`${this.state.URL}/trips`)
+    const users = await axios.get(`${this.state.URL}/users`)
 
     this.setState({
       trips: trips.data,
@@ -68,6 +70,7 @@ class App extends Component {
                   render={(caseyProps) => (
                     <AddTrip
                       user={this.state.users}
+                      URL={this.state.URL}
                       { ... caseyProps}
                     />
                   )}
@@ -89,6 +92,7 @@ class App extends Component {
                   render={(caseyProps) => (
                     <EditTrip
                       trip={this.state.trips}
+                      URL={this.state.URL}
                       { ... caseyProps}
                     />
                   )}
@@ -101,7 +105,7 @@ class App extends Component {
               />
               <Route exact path="/users/signup"
                 render={() => (
-                  <Signup/>
+                  <Signup URL={this.state.URL}/>
                 )}
               />
               <Route exact path="/profile/:id"
@@ -117,6 +121,7 @@ class App extends Component {
                 render={(caseyProps) => (
                   <EditProfile
                     user={this.state.users}
+                    URL={this.state.URL}
                     { ... caseyProps}
                   />
                 )}
@@ -127,6 +132,7 @@ class App extends Component {
                   render={(caseyProps) => (
                     <NewPhoto
                       trip={this.state.trips}
+                      URL={this.state.URL}
                       { ... caseyProps}
                     />
                   )}
@@ -135,6 +141,7 @@ class App extends Component {
                   render={(caseyProps) => (
                     <NewDay
                       trip={this.state.trips}
+                      URL={this.state.URL}
                       { ... caseyProps}
                     />
                   )}
@@ -151,6 +158,7 @@ class App extends Component {
                   render={(caseyProps) => (
                     <EditDay
                       trip={this.state.trips}
+                      URL={this.state.URL}
                       { ... caseyProps}
                     />
                   )}

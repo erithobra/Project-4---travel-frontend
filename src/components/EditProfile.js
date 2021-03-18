@@ -30,27 +30,19 @@ class EditProfile extends Component {
 
     editProfile = async (e) => {
         e.preventDefault();
-        // if(this.state.username == ""){
-        //     this.setState({
-        //         username: "something here"
-        //     });
-        // }
-
         const data = {
             firstName: this.state.firstName,
             lastName: this.state.lastName,
             username: this.state.username,
             password: this.state.password
         }
-        console.log(data);
-        const response = await axios.put(`http://localhost:3001/users/${this.state.userId}`, data);
-        console.log(response)
+        const response = await axios.put(`${this.props.URL}/users/${this.state.userId}`, data);
         this.setState({
             redirect: false
         });
     }
     deleteUser = async (e) => {
-        const deleteUser = await axios.delete(`http://localhost:3001/users/${this.state.userId}`);
+        const deleteUser = await axios.delete(`${this.props.URL}/users/${this.state.userId}`);
         this.setState({ // this doesn't work because the url ceases to exist as soon as axios.delete executes
             redirect: false
         })

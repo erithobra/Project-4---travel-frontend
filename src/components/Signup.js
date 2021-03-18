@@ -31,10 +31,8 @@ class Signup extends Component {
             password: this.state.password,
             profilePicture: this.state.profilePicture
         }
-        console.log(data);
 
-        const response = await axios.post("http://localhost:3001/users/signup", data);
-        console.log(response)
+        const response = await axios.post(`${this.props.URL}/users/signup`, data);
     }
 
     render() {

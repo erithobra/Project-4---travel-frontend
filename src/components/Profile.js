@@ -7,8 +7,8 @@ const Profile = (props) => {
         return user.id === parseInt(props.match.params.id);
     })
 
-    console.log(props.trip[1].Photos[0].photo)
-
+    console.log(props.trip[1])
+    // .Photos[0].photo
     return (
         <div>
             {foundUser ? (

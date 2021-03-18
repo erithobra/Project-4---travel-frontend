@@ -1,70 +1,113 @@
-# Getting Started with Create React App
+# Project-3
+## Movie App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+[Link to Movie App](couchslothmovies.surge.sh)
 
-In the project directory, you can run:
 
-### `npm start`
+[Link to git repository](https://github.com/ackottsi/React_Project_Three)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+---
+#### Motivation:
+Learning to create an app using React that allows people to see details of movies and search for movies they may be interested in.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+---
+#### Objective Level 1 (MVP) (complete):
+- [x] create a pre-defined list of movies for api pull
+- [x] pull api info for each movie and create list view
+- [x] create routes and links to display separate views for each movie
+- [x] minimal styling (no images)
 
-### `npm test`
+#### Objective Level 2 (partially complete):
+* [ ] ratings/likes functionality
+* [ ] comments functionality
+* [x] user login
+* [x] improved styling (colored backgrounds, text, and different font styles)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+#### Objective Level 3 (partially complete):
+* [x] movie search functionality
+* [ ] multiple users with login required
+* [x] improved styling (movie "cards", improved layout, animations)
+* [x] utilize React hooks
 
-### `npm run build`
+---
+#### Wireframe
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+##### Page Layout and Website Flow
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+ * basic structure
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+    ![basic structure](https://i.imgur.com/LpKhx6S.png)
 
-### `npm run eject`
+ * bronze level wireframe
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+    ![bronze level wireframe](https://i.imgur.com/Laf9ECm.png)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+ * silver level wireframe
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+    ![silver level wireframe](https://i.imgur.com/6p5wT5g.png)
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+ * header wireframe
 
-## Learn More
+    ![header wireframe](https://i.imgur.com/jrYMvuy.png)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+ * footer wireframe
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+    ![footer wireframe](https://i.imgur.com/5NUlAMe.png)
 
-### Code Splitting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+---
 
-### Analyzing the Bundle Size
+#### Technology used:
+* HTML, CSS, JavaScript
+* React
+* github - used for revision control
+* Surge - used for deployment.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+---
 
-### Making a Progressive Web App
+#### Main features:
+ * List of features
+ * display list of items
+ * links and routes to detailed item views
+ * search functionality
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+---
 
-### Advanced Configuration
+#### Code snippet:
+This allows for multiple searches to be performed per website visit:
+```
+//component did Update handles all subsequent searches after initial search
+componentDidUpdate= async (prevProps)=>{
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+  if(this.props.location.state.title!==prevProps.location.state.title){
 
-### Deployment
+    const movieSearch = this.props.location.state.title
+    const movieData1 = await axios.get(`https://www.omdbapi.com/?apikey=38e29c7e&s=${movieSearch}`);
+    const resultsString=movieData1.data.Response;
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+    if(resultsString==="False"){
 
-### `npm run build` fails to minify
+      this.setState ({
+      searchTerm: movieSearch,
+      movieData: movieData1.data.Search,
+      apiDataLoaded: true,
+      searchResponse:false
+      })
+    }
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+    else {this.setState ({
+      searchTerm: movieSearch,
+      movieData: movieData1.data.Search,
+      apiDataLoaded: true,
+      searchResponse:true
+    })};  
+  }
+}
+```
+---
+
+#### Room for improvement:
+1. Add CRUD functionality to improve watch list / watched list.
+2. Add CRUD functionality for multiple users.
+3. Add comments section and voting/like feature.
