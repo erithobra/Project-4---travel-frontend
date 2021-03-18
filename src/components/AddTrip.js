@@ -1,7 +1,6 @@
 import axios from 'axios';
 import React, { Component } from 'react';
 
-
 class AddTrip extends Component {
     constructor(props) {
         super(props)
@@ -11,8 +10,8 @@ class AddTrip extends Component {
             endDate: '',
             destination: '',
             userId: props.location.state.user
-        }
-    }
+        };
+    };
 
     handleChange = (evt) => {
         console.log(evt.target);
@@ -30,9 +29,9 @@ class AddTrip extends Component {
             endDate: this.state.endDate,
             destination: this.state.destination,
             userId: this.state.userId
-        }
+        };
         const response = await axios.post(`${this.props.URL}/trips/postNew`, data);
-    }
+    };
 
     render() {
         const { name, startDate, endDate, destination } = this.state;
@@ -71,8 +70,8 @@ class AddTrip extends Component {
                     <input type="submit" value="Create Trip" />
                 </form>
             </div>
-        )
-    }
-}
+        );
+    };
+};
 
 export default AddTrip;

@@ -1,113 +1,95 @@
 # Project-3
-## Movie App
+## Travel Journal
 
 
-[Link to Movie App](couchslothmovies.surge.sh)
+[Link to Travel Journal frontend](http://ebtraveleb.surge.sh/)
 
 
-[Link to git repository](https://github.com/ackottsi/React_Project_Three)
+[Link to Travel Journal frontend GitHub repository](https://github.com/erithobra/travel-frontend)
+
+[Link to Travel Journal backend GitHub repository](https://github.com/erithobra/travel-backend)
 
 ---
 #### Motivation:
-Learning to create an app using React that allows people to see details of movies and search for movies they may be interested in.
+Learning to create a full-stack web application that allows users to create a travel journal where they can record their adventures and see pictures from the trips they've taken.
 
 ---
 #### Objective Level 1 (MVP) (complete):
-- [x] create a pre-defined list of movies for api pull
-- [x] pull api info for each movie and create list view
-- [x] create routes and links to display separate views for each movie
-- [x] minimal styling (no images)
+- [x] allow user to create trips
+- [x] allow user to create journal entries for trips
+- [x] make trips and entries editable
+
 
 #### Objective Level 2 (partially complete):
-* [ ] ratings/likes functionality
-* [ ] comments functionality
-* [x] user login
-* [x] improved styling (colored backgrounds, text, and different font styles)
+* [x] allow for multiple users
+* [x] allow users to display photos
+* [ ] create table for visited attractions/activities
+* [ ] create table for restaurants
+* [ ] allow users to track expenses
 
-#### Objective Level 3 (partially complete):
-* [x] movie search functionality
-* [ ] multiple users with login required
-* [x] improved styling (movie "cards", improved layout, animations)
-* [x] utilize React hooks
+
+#### Objective Level 3 (incomplete):
+* [ ] pull information from Google maps
+* [ ] user authentication
+
 
 ---
-#### Wireframe
+#### Wireframes and ERD
 
-##### Page Layout and Website Flow
+ * ERD
 
- * basic structure
+    ![ER diagram](https://i.imgur.com/BhI4Kkv.png)
 
-    ![basic structure](https://i.imgur.com/LpKhx6S.png)
+ * User Page wireframe
 
- * bronze level wireframe
+    ![user page](https://i.imgur.com/f40FpBV.png)
 
-    ![bronze level wireframe](https://i.imgur.com/Laf9ECm.png)
+ * Trip Page wireframe
 
- * silver level wireframe
-
-    ![silver level wireframe](https://i.imgur.com/6p5wT5g.png)
-
- * header wireframe
-
-    ![header wireframe](https://i.imgur.com/jrYMvuy.png)
-
- * footer wireframe
-
-    ![footer wireframe](https://i.imgur.com/5NUlAMe.png)
-
+    ![trip page](https://i.imgur.com/GMsItQa.png)
 
 ---
 
 #### Technology used:
 * HTML, CSS, JavaScript
 * React
-* github - used for revision control
-* Surge - used for deployment.
+* Node, Express
+* Axios
+* GitHub - used for revision control
+* Heroku - used for backend deployment.
+* Surge - used for frontend deployment.
 
 ---
 
 #### Main features:
- * List of features
- * display list of items
- * links and routes to detailed item views
- * search functionality
+ * Add/Edit Users
+ * Add/Edit Trips
+ * Add/Edit Journal Entries
+ * Add Photos
 
 ---
 
 #### Code snippet:
-This allows for multiple searches to be performed per website visit:
+This identifies the date of a journal entry and then searches for a corresponding date in the photo table. If a photo with that date is found, that photo is set as the background for the preview window of that journal entry. If a photo is not found, a default image is set as the background.
 ```
-//component did Update handles all subsequent searches after initial search
-componentDidUpdate= async (prevProps)=>{
-
-  if(this.props.location.state.title!==prevProps.location.state.title){
-
-    const movieSearch = this.props.location.state.title
-    const movieData1 = await axios.get(`https://www.omdbapi.com/?apikey=38e29c7e&s=${movieSearch}`);
-    const resultsString=movieData1.data.Response;
-
-    if(resultsString==="False"){
-
-      this.setState ({
-      searchTerm: movieSearch,
-      movieData: movieData1.data.Search,
-      apiDataLoaded: true,
-      searchResponse:false
-      })
+{foundTrip.Days.map(day => {
+// looking at the date of each day in the Days table and
+// finding a photo from the same date in the Photos table
+    let dayIdNumber = day.id;
+    let dayIndexNumber = foundTrip.Days.findIndex(elem => elem["id"] === dayIdNumber)
+    let dayIndexNumberDate = foundTrip.Days[dayIndexNumber].date
+    let photoIndexNumber
+    let dayPreviewPhoto
+    if((foundTrip.Photos.findIndex(elem => elem["date"] === dayIndexNumberDate)) === -1){
+        dayPreviewPhoto = "https://i.imgur.com/9yVWjB8.jpg"
+    } else {
+        photoIndexNumber = foundTrip.Photos.findIndex(elem => elem["date"] === dayIndexNumberDate)
+        dayPreviewPhoto = foundTrip.Photos[photoIndexNumber].photo
     }
-
-    else {this.setState ({
-      searchTerm: movieSearch,
-      movieData: movieData1.data.Search,
-      apiDataLoaded: true,
-      searchResponse:true
-    })};  
-  }
-}
 ```
 ---
 
 #### Room for improvement:
-1. Add CRUD functionality to improve watch list / watched list.
-2. Add CRUD functionality for multiple users.
-3. Add comments section and voting/like feature.
+1. Add more features like expense tracking and trip information (flight plans, reservations, etc).
+2. Allow multiple users to be on the same trip.
+3. Incorporate information from Google maps based on user inputs.

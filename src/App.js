@@ -31,32 +31,29 @@ class App extends Component {
       // URL: 'http://localhost:3001',
       URL: 'https://traveljournal-eb.herokuapp.com',
     };
-  }
+  };
 
   getTrips = async () => {
-    const trips = await axios.get(`${this.state.URL}/trips`)
-    const users = await axios.get(`${this.state.URL}/users`)
+    const trips = await axios.get(`${this.state.URL}/trips`);
+    const users = await axios.get(`${this.state.URL}/users`);
 
     this.setState({
       trips: trips.data,
       users: users.data,
       apiDataLoaded: true
-    })
-  }
+    });
+  };
 
   componentDidMount = () => {
     this.getTrips();
-  }
+  };
 
   render() {
-    console.log(this.state.trips);
-
     return (
       <div className="App">
         { this.state.apiDataLoaded
         ?
           <div>
-            {console.log(this.state.trips[1].Days)}
             <div>
               <Switch>
                 <Route exact path="/"
@@ -126,7 +123,6 @@ class App extends Component {
                   />
                 )}
               />
-
               <Switch>
                 <Route exact path="/trips/:tripId/photo/new"
                   render={(caseyProps) => (
@@ -163,7 +159,6 @@ class App extends Component {
                     />
                   )}
                 />
-
               </Switch>
             </div> 
           </div>

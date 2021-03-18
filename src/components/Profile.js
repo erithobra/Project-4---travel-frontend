@@ -7,14 +7,19 @@ const Profile = (props) => {
         return user.id === parseInt(props.match.params.id);
     })
 
-    console.log(props.trip[1])
-    // .Photos[0].photo
+    let profilePicture
+    if (foundUser.profilePicture == "") {
+        profilePicture = "https://i.imgur.com/0KHg9cf.png"
+    } else {
+        profilePicture = foundUser.profilePicture
+    }
+
     return (
         <div>
             {foundUser ? (
                 <div>
                     <div className="profilePicture">
-                        <img src={`${foundUser.profilePicture}`} alt="profile"/>
+                        <img src={`${profilePicture}`} alt="profile"/>
                     </div>
                     <div className="profileButtons"> 
                         <h3>{foundUser.firstName} {foundUser.lastName}</h3>

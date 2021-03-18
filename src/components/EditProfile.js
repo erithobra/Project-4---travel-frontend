@@ -8,7 +8,7 @@ class EditProfile extends Component {
         super(props)
         const foundUser = this.props.user.find(user => {
             return user.id === parseInt(this.props.match.params.id);
-        })
+        });
         this.state = {
             redirect: true,
             userId: foundUser.id,
@@ -16,16 +16,15 @@ class EditProfile extends Component {
             firstName: foundUser.firstName,
             lastName: foundUser.lastName,
             password: foundUser.password
-        }
-    }
+        };
+    };
     
     handleChange = (evt) => {
         console.log(evt.target);
         const { name, value } = evt.target;
         this.setState({
             [name]: value
-        })
-        
+        });
     };
 
     editProfile = async (e) => {
@@ -104,7 +103,7 @@ class EditProfile extends Component {
             
                 : 
                     <Redirect to={{
-                        pathname:`/users`,
+                        pathname:`/profile/${this.state.userId}`,
                         state: { redirect: this.state.redirect },
                         }}
                     />

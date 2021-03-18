@@ -37,7 +37,7 @@ const NewDay = (props) => {
             tripId
         }
         console.log(data)
-        await axios.post(`${props.URL}/trips/${foundTrip.id}/day/new` || `http://localhost:3001/trips/${foundTrip.id}/day/new`, data)
+        await axios.post(`${props.URL}/trips/${foundTrip.id}/day/new`, data)
         history.push(`/trips/${foundTrip.id}`)
         console.log(data)
     }

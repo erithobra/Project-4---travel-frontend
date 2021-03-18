@@ -18,7 +18,8 @@ const ViewDay = (props) => {
             <br />
             <Link to={`/trips/${foundTrip.id}/day/${foundDay.id}/edit`}> <br />
                 <button>Edit Entry </button>
-            </Link>
+            </Link> <br /> <br />
+            <Link to={`/trips/${foundTrip.id}`}><button>Return to Trip</button></Link>
         </div>
     )
 }
