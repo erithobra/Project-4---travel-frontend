@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import axios from 'axios';
 
-
 class EditProfile extends Component {
     constructor(props) {
         super(props)
@@ -20,7 +19,6 @@ class EditProfile extends Component {
     };
     
     handleChange = (evt) => {
-        console.log(evt.target);
         const { name, value } = evt.target;
         this.setState({
             [name]: value
@@ -34,25 +32,28 @@ class EditProfile extends Component {
             lastName: this.state.lastName,
             username: this.state.username,
             password: this.state.password
-        }
+        };
         const response = await axios.put(`${this.props.URL}/users/${this.state.userId}`, data);
         this.setState({
             redirect: false
         });
-    }
+    };
+
     deleteUser = async (e) => {
         const deleteUser = await axios.delete(`${this.props.URL}/users/${this.state.userId}`);
         this.setState({ // this doesn't work because the url ceases to exist as soon as axios.delete executes
             redirect: false
-        })
-    }
-
+        });
+    };
 
     render() {
+
         const foundUser = this.props.user.find(user => {
             return user.id === parseInt(this.props.match.params.id);
-        })
+        });
+
         const { username, firstName, lastName, password } = this.state;
+
         return (
             <div>
                 {this.state.redirect ? (
@@ -100,7 +101,6 @@ class EditProfile extends Component {
                         <p>no user data found</p>
                     }
                 </div>)
-            
                 : 
                     <Redirect to={{
                         pathname:`/profile/${this.state.userId}`,
@@ -108,11 +108,9 @@ class EditProfile extends Component {
                         }}
                     />
                 }
-
-
             </div>
-        )
-    }
-}
+        );
+    };
+};
 
 export default EditProfile;

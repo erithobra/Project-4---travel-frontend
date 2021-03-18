@@ -6,19 +6,16 @@
 }
 
 .tripHeader h1 {
-    /* background-color: gray; */
     margin-top: auto;
     margin-bottom: 12px;
 }
 
 .tripHeader h3 {
-    /* background-color: purple; */
     margin-top: 12px;
     margin-bottom: auto;
 }
 
 .tripHeader h5 {
-    /* background-color: blue; */
     margin: auto 3px;
 }
 
@@ -30,8 +27,6 @@
     display: flex;
     width: 33.3%;
     flex-direction: column;
-    /* align-items: flex-start;
-    justify-content: center; */
 }
 
 .tripIdent {
@@ -42,8 +37,6 @@
 
 .tripLinks {
     display: flex;
-    /* justify-content: center;
-    align-items: flex-end; */
 }
 
 .tripLinks a {
@@ -127,11 +120,7 @@
 }
 
 .journalEntry p {
-    /* display: flex; */
-    /* flex-wrap: wrap; */
-    /* align-content: left; */
     margin: auto;
-    /* overflow-wrap: break-word; */
     width: 98%;
     text-align: left;
     max-height: 70px;

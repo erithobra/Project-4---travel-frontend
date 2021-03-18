@@ -5,7 +5,7 @@ const ViewTrip = (props) => {
 
     const foundTrip = props.trip.find(trip => {
         return trip.id === parseInt(props.match.params.id);
-    })
+    });
 
     return (
         <div>
@@ -39,7 +39,7 @@ const ViewTrip = (props) => {
                             </Link>
                             {foundTrip.Photos.map(photo => (
                                 <div className="thumbnail" key={`${photo.id}thumbnailDiv`}>
-{/* OPEN ISSUE: LINK DOES NOT SEND TO CORRECT LOCATION*/}
+                                    {/* OPEN ISSUE: LINK DOES NOT SEND TO CORRECT LOCATION*/}
                                     <Link to={`${photo.photo}`} key={`${photo.id}thumbnailLink`}>
                                         <img src={`${photo.photo}`} alt="vacation" key={`${photo.id}thumbnailImg`}/>
                                     </Link>
@@ -94,7 +94,7 @@ const ViewTrip = (props) => {
                 <p>no trip data found</p>
             }
         </div>
-    )
-}
+    );
+};
 
 export default ViewTrip;

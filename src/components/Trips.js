@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 
 
 const Trips = (props) => {
-    console.log(props);
     return (
         <div>
             <h1>Trip Index Page</h1>
@@ -16,8 +15,7 @@ const Trips = (props) => {
             </div>
             <Link to="/trips/new">Add New Trip</Link>
         </div>
-    )
-}
-
+    );
+};
 
 export default Trips;

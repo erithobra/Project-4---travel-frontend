@@ -5,31 +5,29 @@ import { Link, useHistory } from 'react-router-dom';
 const NewPhoto = (props) => {
 
     const foundTrip = props.trip.find(trip => {
-        console.log(trip.id)
-        console.log(props.match)
         return trip.id === parseInt(props.match.params.tripId)
-    })
+    });
 
     const [date, setDate] = useState("");
     const [photo, setPhoto] = useState("");
     const [location, setLocation] = useState("");
     const [tripId,setTripId] = useState(foundTrip.id);
-    const history = useHistory()
+    const history = useHistory();
 
     function handleDateChange(e) {
         e.preventDefault();
         setDate(e.target.value);
-    } 
+    };
     
     function handlePhotoChange(e) {
         e.preventDefault();
         setPhoto(e.target.value);
-    }
+    };
 
     function handleLocationChange(e) {
         e.preventDefault();
         setLocation(e.target.value);
-    }
+    };
     
     const AddPhoto = async (e) => {
         e.preventDefault();
@@ -38,12 +36,12 @@ const NewPhoto = (props) => {
             photo,
             location,
             tripId
-        }
+        };
 
         await axios.post(`${props.URL}/trips/${foundTrip.id}/photo/new`, data)
         // history.push(`/trips/${foundTrip.id}`)
 
-    }
+    };
     
     return (
         <div>
@@ -68,7 +66,7 @@ const NewPhoto = (props) => {
             </form> <br />
             <Link to={`/trips/${foundTrip.id}`}><button>Return to Trip</button></Link>
         </div>
-    )
-}
+    );
+};
 
 export default NewPhoto;

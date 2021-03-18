@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const Users = (props) => {
-    console.log("test");
     return (
         <div>
             <h1>User Index Page</h1>
@@ -15,7 +14,7 @@ const Users = (props) => {
             </div>
             <Link to="/users/signup">Add New User</Link>
         </div>
-    )
-}
+    );
+};
 
 export default Users;

@@ -4,18 +4,16 @@ import React, { Component } from 'react';
 class Signup extends Component {
     constructor(props) {
         super(props)
-
         this.state = {
             username: '',
             firstName: '',
             lastName: '',
             password: '',
             profilePicture: ''
-        }
-    }
+        };
+    };
 
     handleChange = (evt) => {
-        console.log(evt.target);
         const { name, value } = evt.target;
         this.setState({
             [name]: value
@@ -30,10 +28,10 @@ class Signup extends Component {
             lastName: this.state.lastName,
             password: this.state.password,
             profilePicture: this.state.profilePicture
-        }
+        };
 
         const response = await axios.post(`${this.props.URL}/users/signup`, data);
-    }
+    };
 
     render() {
         const { username, firstName, lastName, password, profilePicture } = this.state;
@@ -79,8 +77,8 @@ class Signup extends Component {
                     <input type="submit" value="Signup" />
                 </form>
             </div>
-        )
-    }
-}
+        );
+    };
+};
 
 export default Signup;

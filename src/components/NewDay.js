@@ -6,12 +6,8 @@ import { useHistory } from 'react-router-dom';
 const NewDay = (props) => {
 
     const foundTrip = props.trip.find(trip => {
-        console.log(trip.id)
-        console.log(props.match)
         return trip.id === parseInt(props.match.params.tripId)
-    })
-
-    console.log(foundTrip)
+    });
 
     const [date, setDate] = useState("");
     const [journal, setJournal] = useState("");
@@ -21,13 +17,12 @@ const NewDay = (props) => {
     function handleJournalChange(e) {
         e.preventDefault();
         setJournal(e.target.value);
-
-    }
+    };
 
     function handleDateChange(e) {
         e.preventDefault();
         setDate(e.target.value);
-    }
+    };
     
     const AddDay = async (e) => {
         e.preventDefault();
@@ -35,12 +30,10 @@ const NewDay = (props) => {
             date,
             journal,
             tripId
-        }
-        console.log(data)
+        };
         await axios.post(`${props.URL}/trips/${foundTrip.id}/day/new`, data)
         history.push(`/trips/${foundTrip.id}`)
-        console.log(data)
-    }
+    };
 
     return (
         <div>
@@ -60,8 +53,7 @@ const NewDay = (props) => {
             </form> <br />
             <Link to={`/trips/${foundTrip.id}`}><button>Return to Trip</button></Link>
         </div>
-    )
-}
-
+    );
+};
 
 export default NewDay;

@@ -1,5 +1,4 @@
 .profilePicture {
-
     width: 200px;
     height: 200px;
     border-radius: 25px;
@@ -7,7 +6,6 @@
     position: relative;
     overflow: hidden;
     margin-top: 50px;
-    
 }
 
 .tripIndex {
@@ -16,7 +14,6 @@
 }
 
 .profilePicture img {
-    
     max-height: 110%;
     border-radius: 25px;
     position: relative;

@@ -5,11 +5,11 @@ const ViewDay = (props) => {
 
     const foundTrip = props.trip.find(trip => {
         return trip.id === parseInt(props.match.params.tripId);
-    })
+    });
 
     const foundDay = foundTrip.Days.find(day => {
         return day.id === parseInt(props.match.params.dayId)
-    })
+    });
 
     return (
         <div className="viewDayJournalEntry">
@@ -21,7 +21,7 @@ const ViewDay = (props) => {
             </Link> <br /> <br />
             <Link to={`/trips/${foundTrip.id}`}><button>Return to Trip</button></Link>
         </div>
-    )
-}
+    );
+};
 
 export default ViewDay;
