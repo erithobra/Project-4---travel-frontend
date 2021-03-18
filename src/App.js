@@ -28,8 +28,8 @@ class App extends Component {
       trips: [],
       users: [],
       apiDataLoaded: false,
-      URL: 'http://localhost:3001',
-      // URL: 'https://traveljournal-eb.herokuapp.com',
+      // URL: 'http://localhost:3001',
+      URL: 'https://traveljournal-eb.herokuapp.com',
     };
   }
 
@@ -59,7 +59,7 @@ class App extends Component {
             {console.log(this.state.trips[1].Days)}
             <div>
               <Switch>
-                <Route exact path="/trips/home"
+                <Route exact path="/"
                   render={() => (
                     <LandingPage 
                       users={this.state.users} 
